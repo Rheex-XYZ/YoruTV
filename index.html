@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YoruTV - Streaming TV Indonesia</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h1>YoruTV</h1>
+        <p>Streaming TV Indonesia</p>
+      </div>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Cari channel..." />
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="category-list">
+          <h3>Kategori</h3>
+          <ul>
+            <li class="category-item active" data-category="all">
+              Semua Channel
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="content">
+        <div class="channel-grid" id="channel-grid">
+          <!-- Channels will be loaded here dynamically -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Player Modal -->
+    <div class="player-modal" id="player-modal">
+      <div class="player-container">
+        <div class="player-header">
+          <h2 id="channel-name">Channel Name</h2>
+          <button class="close-btn" id="close-player">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="player-content">
+          <div class="video-wrapper">
+            <div class="video-container">
+              <video id="video-player"></video>
+              <div class="loading-spinner" id="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Memuat...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- External Controls -->
+          <div class="external-controls">
+            <button class="control-btn" id="play-pause-btn">
+              <i class="fas fa-play"></i>
+            </button>
+
+            <div class="progress-container">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-filled" id="progress-filled"></div>
+              </div>
+              <span class="time-display" id="time-display">00:00 / 00:00</span>
+            </div>
+
+            <button class="control-btn" id="quality-btn">
+              <i class="fas fa-cog"></i>
+            </button>
+
+            <button class="control-btn" id="fullscreen-btn">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quality Selection Popup -->
+    <div class="quality-popup" id="quality-popup">
+      <div class="quality-popup-backdrop"></div>
+      <div class="quality-popup-content">
+        <div class="quality-popup-header">
+          <h3>Pilih Kualitas</h3>
+          <button class="quality-close-btn" id="quality-close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="quality-options" id="quality-options">
+          <!-- Quality options will be added dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 YoruTV. All rights reserved.</p>
+    </footer>
+
+    <!-- Shaka Player for MPD playback -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/controls.min.css"
+    />
+
+    <script src="script.js"></script>
+  </body>
+</html>
